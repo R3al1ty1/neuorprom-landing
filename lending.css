@@ -22,8 +22,8 @@
 
     /* Переходы */
     --transition-fast: all 0.2s ease-in-out;
-    --transition-medium: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Плавный переход */
-    --transition-slow: all 0.5s ease;
+    --transition-medium: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Чуть более плавный переход */
+    --transition-slow: all 0.6s ease;
 
     /* Скругления */
     --border-radius-small: 6px;
@@ -273,7 +273,17 @@ img {
 .hero-content {
     flex: 1;
     max-width: 600px; /* Ограничиваем ширину текста */
+    /* Начальное состояние для анимации */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--transition-slow) ease-out, transform var(--transition-slow) ease-out; /* Плавный переход */
 }
+/* Конечное состояние при добавлении класса */
+.hero-content.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 .hero-image {
     flex: 1;
@@ -502,7 +512,7 @@ img {
     overflow: hidden;
 }
 
-/* Элемент подсветки границы при наведении на карточку оффера (опционально) */
+/* Элемент подсветки границы при наведении на карточку оффера */
 .offer-card::before {
     content: '';
     position: absolute;
@@ -512,13 +522,15 @@ img {
     height: 100%;
     border-radius: var(--border-radius-extra-large);
     border: 2px solid transparent;
+    /* Градиент для границы */
     background: linear-gradient(45deg, var(--accent-teal-green), transparent, transparent, var(--accent-teal-green)) border-box;
+    /* Маска, чтобы градиент был только на border */
     -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: exclude;
     mask-composite: exclude;
     opacity: 0;
-    transition: opacity var(--transition-medium);
+    transition: opacity var(--transition-medium); /* Плавность появления границы */
 }
 
 .offer-card:hover::before {
@@ -1197,74 +1209,20 @@ img {
         gap: 25px;
     }
      .feature-card {
+         padding: 25px; /* Меньше padding */
          min-height: unset;
      }
-}
-
-
-@media (max-width: 480px) {
-     h1 { font-size: clamp(1.8rem, 7vw, 2.5rem); }
-    h2 { font-size: clamp(1.6rem, 6vw, 2rem); margin-bottom: 1em; }
-    h3 { font-size: clamp(1.3rem, 5vw, 1.6rem); }
-
-    .section-padding {
-        padding: 60px 0;
-    }
-    .section-padding-hero {
-         padding: 100px 0 60px;
-     }
-
-    .container {
-        padding: 0 15px;
-    }
-
-    .header {
-        padding: 12px 0;
-    }
-    .logo-text {
-        display: none;
-    }
-     .logo-img {
-         height: 35px;
-     }
-     .mobile-menu-btn {
-         font-size: 1.5rem;
-     }
-      .nav {
-          top: 60px;
-      }
-
-
-    .hero .subtitle {
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-    }
-    .hero-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .hero-buttons .btn {
-         width: 100%;
-         min-width: unset;
-         padding: 12px 20px; /* Меньше padding */
-     }
-     .hero-image {
-         width: 90%;
-     }
-
-
-    /* Features: одна колонка уже установлена в 576px */
-     .feature-card {
-         padding: 25px;
-     }
-      .feature-icon {
-          font-size: 2.8rem;
+     .feature-icon {
+          font-size: 3rem; /* Меньше иконка */
           width: 65px;
           height: 65px;
-      }
+     }
+      .feature-card h3 {
+          font-size: 1.4rem; /* Меньше заголовок */
+     }
 
 
-     .advantage-item {
+    .advantage-item {
           margin-bottom: 20px;
      }
      .advantage-number {
@@ -1373,4 +1331,25 @@ img {
       #modal-close-btn {
           padding: 10px 20px;
       }
+}
+
+
+/* Дополнительная адаптация для очень маленьких экранов */
+@media (max-width: 360px) {
+     .hero-buttons {
+         flex-direction: column; /* Кнопки в колонку на самых узких экранах */
+         gap: 10px;
+     }
+      .hero-buttons .btn {
+          width: 100%;
+      }
+
+     .social-links {
+          gap: 8px; /* Меньше отступ между соц. иконками */
+     }
+     .social-links a {
+         width: 35px;
+         height: 35px;
+         font-size: 1rem;
+     }
 }

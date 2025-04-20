@@ -1,3 +1,4 @@
+--- START OF FILE lending.html ---
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -17,7 +18,7 @@
         <div class="container">
             <div class="logo-container">
                 <!-- Путь к логотипу - убедитесь, что файл images/logo.png существует -->
-                <img src="images/logo.png" alt="Neuroprom" class="logo-img" width="40" height="40">
+                <img src="images/logo.png" alt="Логотип Neuroprom" class="logo-img" width="40" height="40">
                 <span class="logo-text">Neuroprom</span>
             </div>
             <nav class="nav">
@@ -38,7 +39,8 @@
     <!-- Hero Section -->
     <section class="hero section-padding-hero">
         <div class="container">
-            <div class="hero-content">
+            <!-- Добавлен класс needs-animation для триггера анимации через JS -->
+            <div class="hero-content needs-animation">
                 <h1>
                     Искусственный интеллект для
                     <span class="text-accent">материаловедения</span>
@@ -55,7 +57,7 @@
             <div class="hero-image">
                 <!-- Placeholder для изображения интерфейса/мокапа -->
                 <!-- Убедитесь, что файл images/hero-mockup.png существует -->
-                <img src="images/hero-mockup.png" alt="Интерфейс Neuroprom" class="img-responsive">
+                <img src="images/hero-mockup.png" alt="Интерфейс платформы Neuroprom" class="img-responsive">
             </div>
         </div>
     </section>
@@ -105,7 +107,8 @@
                  <div class="advantages-image">
                     <!-- Убедитесь, что файл images/Cone_013.png существует -->
                     <!-- Анимация и тень убраны по запросу -->
-                    <img src="images/Cone_013.png" alt="Преимущества Neuroprom" class="img-responsive">
+                    <!-- Примечание: Если у изображения есть пустые поля сверху/снизу, их нужно убрать в графическом редакторе -->
+                    <img src="images/Cone_013.png" alt="Абстрактное изображение, символизирующее материаловедение" class="img-responsive">
                 </div>
                 <div class="advantages-text">
                     <div class="advantage-item">
@@ -213,9 +216,11 @@
                     </div>
                 </div>
                 <div class="contacts-map">
-                    <!-- Заглушка Яндекс Карт. Вам нужно получить актуальный код встраивания для вашего адреса с maps.yandex.ru -->
-                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3AYOUR_YANDEX_MAP_CODE&source=constructor" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    <!-- Замените YOUR_YANDEX_MAP_CODE на реальный код, полученный из Яндекс Карт (обычно в виде длинной строки символов) -->
+                    <!-- Код встраивания Яндекс Карт -->
+                    <!-- ВАЖНО: Замените содержимое src="" на реальный код встраивания карты, полученный с maps.yandex.ru -->
+                    <!-- Для адреса "г. Москва, ул. Автозаводская, 16" -->
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A688466f64a2e507f0745cf155003d585d8582a5d998e0e0582b6091d96f4937c&source=constructor" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="true" loading="lazy"></iframe>
+                    <!-- Пример src для Автозаводской 16: constructor%3A688466f64a2e507f0745cf155003d585d8582a5d998e0e0582b6091d96f4937c -->
                 </div>
             </div>
         </div>
@@ -253,6 +258,8 @@
     </div>
 
     <!-- Подключение скрипта. Убедитесь, что путь lending.js верен и файл доступен. -->
+    <!-- Скрипт должен быть в конце body для правильной работы с DOM. -->
     <script src="lending.js"></script>
 </body>
 </html>
+--- END OF FILE lending.html ---

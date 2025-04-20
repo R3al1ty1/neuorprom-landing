@@ -3,6 +3,22 @@ console.log('lending.js script started.'); // Log when script starts
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOMContentLoaded fired!'); // Log when DOM is ready
 
+    // --- Hero Content Entrance Animation ---
+    const heroContent = document.querySelector('.hero-content');
+    if (heroContent) {
+        // Add 'animated' class after a small delay to trigger CSS transition
+        // Using setTimeout to ensure initial styles are applied before adding the class
+        // A value of 10ms or requestAnimationFrame is often enough.
+        requestAnimationFrame(() => {
+             setTimeout(() => {
+                heroContent.classList.add('animated');
+                console.log('Hero content animation triggered.');
+             }, 50); // Small delay to allow initial render
+        });
+    } else {
+        console.warn('Hero content element not found for animation.');
+    }
+
     // --- Mobile menu toggle ---
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const nav = document.querySelector('.nav');
