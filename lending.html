@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuroprom - Искусственный интеллект для материаловедения </title>
+    <link rel="stylesheet" href="lending.css">
+    <!-- Использование современного шрифта Inter из Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <!-- Путь к логотипу - убедитесь, что файл находится в папке images -->
+                <img src="images/logo.png" alt="Neuroprom" class="logo-img" width="40" height="40">
+                <span class="logo-text">Neuroprom</span>
+            </div>
+            <nav class="nav">
+                <a href="#features">Возможности</a>
+                <a href="#advantages">Преимущества</a>
+                <a href="#pilot">Пилотный проект</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <!-- Кнопка "Войти" -->
+            <button class="btn btn-secondary-outline" id="app-btn">Войти в приложение</button> <!-- Сменили класс для другого стиля -->
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero section-padding-hero">
+        <div class="container">
+            <div class="hero-content">
+                <!-- Главный заголовок - возможно, добавим акцентный цвет на части текста через span -->
+                <h1>
+                    Искусственный интеллект для
+                    <span class="text-accent">материаловедения</span>
+                </h1>
+                <p class="subtitle">
+                    Neuroprom умеет прогнозировать свойства металлических материалов
+                    с беспрецедентной точностью, ускоряя ваши исследования и производство.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary-gradient" id="hero-app-btn">Попробовать бесплатно</button>
+                    <button class="btn btn-secondary-outline" id="hero-contact-btn">Оставить заявку</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Placeholder для изображения интерфейса/мокапа -->
+                <img src="images/hero-mockup.png" alt="Интерфейс Neuroprom" class="img-responsive">
+                 <!-- Убедитесь, что у вас есть подходящее изображение в папке images -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features section-padding" id="features">
+        <div class="container">
+            <h2>Что может Neuroprom?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Моделирование</h3>
+                    <p>Компьютерное моделирование материалов и процессов любой сложности.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                         <!-- Поменяли иконку на более подходящую -->
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3>Цифровые двойники</h3>
+                    <p>Создание точных цифровых двойников материалов и изделий для симуляций.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Автоматизация</h3>
+                    <p>Автоматизация рутинных аналитических процессов, высвобождая ресурсы.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Прогнозирование</h3>
+                    <p>Точный прогноз механических, эксплуатационных и других критических свойств.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages section-padding" id="advantages">
+        <div class="container">
+            <h2>Почему выбирают Neuroprom?</h2>
+            <div class="advantages-content">
+                 <div class="advantages-image">
+                    <!-- Placeholder для изображения -->
+                    <img src="images/Cone_013.png" alt="Преимущества Neuroprom" class="img-responsive">
+                     <!-- Убедитесь, что у вас есть подходящее изображение в папке images -->
+                </div>
+                <div class="advantages-text">
+                    <div class="advantage-item">
+                        <div class="advantage-number">1</div>
+                        <div class="advantage-desc">
+                            <h3>Ускорение R&D</h3>
+                            <p>Сокращение времени на разработку новых сплавов и материалов до 30%.</p>
+                        </div>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-number">2</div>
+                        <div class="advantage-desc">
+                            <h3>Снижение брака</h3>
+                            <p>Сокращение производственного брака на 20%+ благодаря точности прогнозов.</p>
+                        </div>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-number">3</div>
+                        <div class="advantage-desc">
+                            <h3>Гибкие тарифы</h3>
+                            <p>Оптимизация расходов с оплатой только за реально использованные возможности.</p>
+                        </div>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-number">4</div>
+                        <div class="advantage-desc">
+                            <h3>Поддержка 24/7</h3>
+                            <p>Круглосуточная экспертная поддержка по всем вопросам использования платформы.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pilot Section -->
+    <section class="pilot section-padding" id="pilot">
+        <div class="container">
+            <div class="pilot-content">
+                <h2>Примите участие в Пилотном проекте</h2>
+                <p class="pilot-subtitle">
+                    Станьте одним из первых 20 клиентов и получите особые эксклюзивные условия!
+                </p>
+
+                <div class="pilot-offer">
+                    <div class="offer-card">
+                        <h3>Специальное предложение</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> 6 месяцев бесплатного использования платформы</li>
+                            <li><i class="fas fa-check-circle"></i> Полная интеграция в ваши процессы под "ключ"</li>
+                            <li><i class="fas fa-check-circle"></i> Индивидуальная настройка под ваши материалы и задачи</li>
+                            <li><i class="fas fa-check-circle"></i> Гарантированная скидка 30% на постоянное использование после пилота</li>
+                        </ul>
+                         <div class="offer-note">
+                            <i class="fas fa-info-circle"></i> Количество мест ограничено! Оставьте заявку прямо сейчас.
+                         </div>
+                    </div>
+                </div>
+
+                <form class="pilot-form" id="cooperation-form">
+                    <h3>Оставить заявку на участие</h3>
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Телефон" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="company" name="company" placeholder="Компания">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Расскажите кратко о ваших задачах"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary-gradient btn-form-submit">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section class="contacts section-padding" id="contacts">
+        <div class="container">
+            <h2>Контакты</h2>
+            <div class="contacts-content">
+                <div class="contacts-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:info.neuroprom@yandex.ru">info.neuroprom@yandex.ru</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+79778557606">+7 (977) 855-76-06</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>г. Москва, ул. Автозаводская, 16</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://t.me/Alex_Notinberg" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="https://wa.me/79778857606" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://vk.com/antipushka79" target="_blank" aria-label="VKontakte"><i class="fab fa-vk"></i></a>
+                    </div>
+                </div>
+                <div class="contacts-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22500.64279714194!2d37.64589!3d55.70425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTXCsDQyJzE1LjMiTiAzN8KwMzgnNDUuMiJF!5e0!3m2!1sru!2sru!4v1620000000000!5m2!1sru!2sru" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Neuroprom</div>
+                <div class="footer-links">
+                    <a href="#features">Возможности</a>
+                    <a href="#advantages">Преимущества</a>
+                    <a href="#pilot">Пилотный проект</a>
+                    <a href="#contacts">Контакты</a>
+                </div>
+                <div class="footer-legal">
+                    <p>© 2024 Neuroprom. Все права защищены.</p>
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Условия использования</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно успеха -->
+    <div class="modal" id="success-modal">
+        <div class="modal-content">
+            <span class="close-modal">×</span>
+            <i class="fas fa-check-circle success-icon"></i>
+            <h3>Заявка успешно отправлена!</h3>
+            <p>Спасибо за интерес к Neuroprom. Наш менеджер свяжется с вами в ближайшее время.</p>
+            <button class="btn btn-primary-gradient" id="modal-close-btn">Понятно</button>
+        </div>
+    </div>
+
+    <script src="lending.js"></script>
+</body>
+</html>

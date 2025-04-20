@@ -1,0 +1,1367 @@
+:root {
+    /* Современная палитра в стиле референса */
+    --primary-dark: #0D111C; /* Почти черный, очень темный синий */
+    --secondary-dark: #1A202C; /* Чуть светлее темный синий */
+    --accent-teal-green: #00C4B2; /* Яркий бирюзово-зеленый акцент */
+    --accent-teal-green-dark: #00A999; /* Темнее для градиентов/наведения */
+    --white: #FFFFFF;
+    --gray-light: #E2E8F0; /* Очень светлый серый для основного текста */
+    --gray-medium: #A0AEC0; /* Средний серый для вспомогательного текста/плейсхолдеров */
+    --gray-dark: #2D3748; /* Темно-серый для границ/фонов внутри элементов */
+
+    /* Градиенты */
+    --gradient-primary-button: linear-gradient(90deg, var(--accent-teal-green), var(--accent-teal-green-dark));
+    --gradient-primary-button-hover: linear-gradient(90deg, var(--accent-teal-green-dark), var(--accent-teal-green));
+    --gradient-offer-card: linear-gradient(135deg, var(--secondary-dark), var(--primary-dark)); /* Градиент для карточки оффера */
+
+
+    /* Тени */
+    --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.5); /* Мягкая, но заметная тень */
+    --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.6); /* Более выраженная при наведении */
+    --shadow-accent: 0 5px 15px rgba(0, 196, 178, 0.3); /* Тень под акцентный цвет */
+
+    /* Переходы */
+    --transition-fast: all 0.2s ease-in-out;
+    --transition-medium: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Плавный переход */
+    --transition-slow: all 0.5s ease;
+
+    /* Скругления */
+    --border-radius-small: 6px;
+    --border-radius-medium: 10px;
+    --border-radius-large: 30px; /* Для кнопок */
+    --border-radius-extra-large: 16px; /* Для карточек/блоков */
+
+
+    /* Типографика */
+    --font-family-primary: 'Inter', sans-serif;
+    --font-size-base: 1rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    line-height: 1.8; /* Увеличен межстрочный интервал для лучшей читаемости на темном фоне */
+    color: var(--gray-light); /* Основной текст светлый */
+    background-color: var(--primary-dark); /* Основной темный фон */
+    overflow-x: hidden;
+    /* Возможно, добавим легкий градиент или фоновый паттерн */
+    /* background: radial-gradient(ellipse at top left, rgba(0, 196, 178, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom right, rgba(100, 50, 200, 0.05) 0%, transparent 50%),
+                var(--primary-dark); */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 800; /* Более жирные заголовки */
+    line-height: 1.1;
+    color: var(--white); /* Заголовки белые */
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); } /* Адаптивный размер заголовка */
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 1.5em; }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+
+a {
+    text-decoration: none;
+    color: var(--gray-light);
+    transition: var(--transition-fast);
+}
+
+a:hover {
+    color: var(--accent-teal-green); /* Наведение на ссылки акцентным цветом */
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px; /* Чуть шире контейнер */
+    margin: 0 auto;
+    padding: 0 25px; /* Больше горизонтальный padding */
+}
+
+.section-padding {
+    padding: 120px 0; /* Больше вертикальный padding между секциями */
+    position: relative; /* Для позиционирования фоновых элементов внутри секции */
+}
+.section-padding-hero {
+     padding: 200px 0 120px; /* Специальный padding для первой секции с учетом хедера */
+     position: relative;
+}
+
+
+/* Кнопки */
+.btn {
+    display: inline-flex; /* Use flexbox for centering text if needed */
+    align-items: center;
+    justify-content: center;
+    padding: 14px 30px;
+    border-radius: var(--border-radius-large);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-medium);
+    border: none;
+    font-size: var(--font-size-base);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    min-width: 160px; /* Минимальная ширина кнопки */
+}
+
+.btn-primary-gradient {
+    background: var(--gradient-primary-button);
+    color: var(--primary-dark);
+    box-shadow: var(--shadow-accent);
+}
+
+.btn-primary-gradient:hover {
+    background: var(--gradient-primary-button-hover);
+    transform: translateY(-4px); /* Легкое поднятие */
+    box-shadow: 0 10px 25px rgba(0, 196, 178, 0.4); /* Усиленная тень */
+}
+
+.btn-secondary-outline {
+    background: transparent;
+    color: var(--accent-teal-green);
+    border: 2px solid var(--accent-teal-green);
+}
+
+.btn-secondary-outline:hover {
+    background: var(--accent-teal-green);
+    color: var(--primary-dark);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-accent);
+}
+
+/* Акцентный текст в заголовках */
+.text-accent {
+    color: var(--accent-teal-green);
+}
+
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(13, 17, 28, 0.9); /* Полупрозрачный темный фон */
+    backdrop-filter: blur(10px); /* Эффект стекла */
+    -webkit-backdrop-filter: blur(10px); /* Для Safari */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    padding: 18px 0; /* Увеличенный padding */
+    border-bottom: 1px solid var(--gray-dark); /* Тонкая граница */
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    transition: var(--transition-fast);
+    filter: brightness(1.1); /* Чуть ярче на темном фоне */
+}
+
+.logo-img:hover {
+    transform: scale(1.08);
+    opacity: 1;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 900; /* Очень жирный */
+    color: var(--white);
+    transition: var(--transition-fast);
+    letter-spacing: -0.5px; /* Слегка уменьшенный интервал */
+}
+
+.logo-text:hover {
+     color: var(--accent-teal-green);
+}
+
+.nav a {
+    margin-left: 40px;
+    font-weight: 500;
+    transition: var(--transition-fast);
+    position: relative;
+    color: var(--gray-medium); /* Цвет ссылок - менее яркий */
+    padding-bottom: 5px;
+}
+
+.nav a:hover {
+    color: var(--accent-teal-green);
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-teal-green);
+    transition: var(--transition-fast);
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--white);
+}
+
+/* Hero Section */
+.hero {
+    background: var(--primary-dark); /* Основной темный фон */
+    color: var(--white);
+    position: relative;
+    overflow: hidden; /* Скрываем фоновые элементы, выходящие за блок */
+}
+/* Абстрактный фоновый элемент в Hero (пример) */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 600px;
+    height: 600px;
+    background: rgba(0, 196, 178, 0.1); /* Акцентный цвет с прозрачностью */
+    border-radius: 50%;
+    filter: blur(150px);
+    z-index: 0;
+    pointer-events: none; /* Не мешает кликам */
+}
+
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px; /* Больше расстояние */
+    position: relative; /* Контент над фоновым элементом */
+    z-index: 1;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px; /* Ограничиваем ширину текста */
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px; /* Минимальная ширина для адаптивности */
+}
+
+.hero-image img {
+    border-radius: var(--border-radius-extra-large); /* Более скругленные */
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-medium);
+    transform: perspective(1000px) rotateY(-5deg); /* Легкий 3D эффект */
+    opacity: 0.95;
+}
+
+.hero-image img:hover {
+     transform: perspective(1000px) rotateY(-2deg) translateY(-8px); /* Эффект при наведении */
+     box-shadow: var(--shadow-hover);
+     opacity: 1;
+}
+
+
+.hero h1 {
+    margin-bottom: 1rem; /* Уменьшенный отступ */
+    line-height: 1.2;
+}
+
+.hero .subtitle {
+    font-size: 1.25rem; /* Чуть больше подзаголовок */
+    color: var(--gray-medium);
+    margin-bottom: 2.5rem; /* Увеличенный отступ */
+    font-weight: 400;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Перенос кнопок на мобильных */
+}
+.hero-buttons .btn {
+    min-width: 200px; /* Чуть больше мин. ширина кнопок в hero */
+}
+
+
+/* Features Section */
+.features {
+    background-color: var(--secondary-dark); /* Чередующийся темный фон */
+    color: var(--gray-light);
+}
+
+.features h2 {
+    text-align: center;
+}
+
+.features-grid {
+    display: grid;
+    /* Изменено: Явно задаем 4 колонки для широких экранов */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px; /* Больше отступ */
+}
+
+.feature-card {
+    background-color: var(--primary-dark);
+    padding: 40px;
+    border-radius: var(--border-radius-extra-large); /* Более скругленные */
+    text-align: center;
+    transition: var(--transition-medium);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--gray-dark); /* Граница */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Центрируем содержимое по вертикали */
+    min-height: 280px; /* Фиксированная мин. высота для выравнивания */
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent-teal-green); /* Изменение границы при наведении */
+}
+
+.feature-icon {
+    font-size: 3.5rem;
+    color: var(--accent-teal-green);
+    margin-bottom: 20px;
+    background: rgba(0, 196, 178, 0.1); /* Полупрозрачный фон */
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-medium);
+    box-shadow: 0 0 0 0 rgba(0, 196, 178, 0.7); /* Начальная тень для эффекта пульсации */
+}
+.feature-card:hover .feature-icon {
+    box-shadow: 0 0 0 15px rgba(0, 196, 178, 0); /* Эффект пульсации при наведении */
+}
+
+
+.feature-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    color: var(--gray-medium);
+}
+
+/* Advantages Section */
+.advantages {
+    background-color: var(--primary-dark); /* Чередующийся темный фон */
+    color: var(--gray-light);
+}
+
+.advantages h2 {
+    text-align: center;
+}
+
+.advantages-content {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    flex-wrap: wrap-reverse; /* Изображение снизу на мобильных */
+}
+
+.advantages-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.advantages-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+}
+.advantages-image img {
+    border-radius: var(--border-radius-extra-large);
+    /* Изменено: Удалена тень */
+    /* box-shadow: var(--shadow-card); */ /* <-- Removed */
+    /* Удалены transition, transform, opacity */
+    /* Удален :hover блок */
+}
+
+
+.advantage-item {
+    display: flex;
+    margin-bottom: 30px; /* Отступ */
+    align-items: flex-start;
+}
+
+.advantage-number {
+    background-color: var(--accent-teal-green);
+    color: var(--primary-dark);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin-right: 25px;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-accent);
+    transition: var(--transition-medium); /* Оставляем анимацию номера */
+}
+.advantage-item:hover .advantage-number {
+    transform: scale(1.1); /* Легкое увеличение при наведении на пункт */
+    box-shadow: 0 0 0 10px rgba(0, 196, 178, 0.2); /* Дополнительная тень */
+}
+
+
+.advantage-desc h3 {
+    margin-bottom: 8px; /* Меньше отступ */
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.advantage-desc p {
+    color: var(--gray-medium);
+    font-size: 1rem;
+}
+
+/* Pilot Section */
+.pilot {
+    background-color: var(--secondary-dark); /* Чередующийся темный фон */
+    color: var(--gray-light);
+}
+
+.pilot h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.pilot-subtitle {
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--gray-medium);
+    margin-bottom: 4rem; /* Больше отступ */
+    font-weight: 400;
+}
+
+.pilot-offer {
+    margin-bottom: 5rem; /* Больше отступ */
+}
+
+.offer-card {
+    background: var(--gradient-offer-card); /* Градиентный фон */
+    color: var(--white);
+    padding: 50px;
+    border-radius: var(--border-radius-extra-large);
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--gray-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Элемент подсветки границы при наведении на карточку оффера (опционально) */
+.offer-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius-extra-large);
+    border: 2px solid transparent;
+    background: linear-gradient(45deg, var(--accent-teal-green), transparent, transparent, var(--accent-teal-green)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: exclude;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity var(--transition-medium);
+}
+
+.offer-card:hover::before {
+    opacity: 1;
+}
+
+
+.offer-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.offer-card ul {
+    margin-top: 1.5rem;
+    padding-left: 0; /* Убираем стандартный отступ ul */
+}
+
+.offer-card li {
+    margin-bottom: 18px; /* Отступ */
+    display: flex;
+    align-items: flex-start; /* Выравнивание иконки по верху текста */
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.offer-card li:last-child {
+    margin-bottom: 0;
+}
+
+.offer-card i {
+    margin-right: 12px; /* Отступ */
+    font-size: 1.3rem; /* Размер иконки */
+    color: var(--accent-teal-green);
+    flex-shrink: 0; /* Иконка не сжимается */
+    margin-top: 4px; /* Небольшое выравнивание по тексту */
+}
+
+.offer-note {
+    margin-top: 25px;
+    padding: 15px 20px;
+    background-color: rgba(0, 196, 178, 0.1); /* Фон акцентного цвета с прозрачностью */
+    border-left: 4px solid var(--accent-teal-green); /* Акцентная полоса */
+    border-radius: var(--border-radius-small);
+    color: var(--gray-medium);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.offer-note i {
+    color: var(--accent-teal-green);
+    font-size: 1.2rem;
+}
+
+
+.pilot-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--primary-dark);
+    padding: 50px;
+    border-radius: var(--border-radius-extra-large);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--gray-dark);
+}
+
+.pilot-form h3 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid var(--gray-dark);
+    border-radius: var(--border-radius-medium);
+    font-size: 1rem;
+    background-color: var(--secondary-dark);
+    color: var(--gray-light);
+    transition: var(--transition-fast);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--gray-medium);
+    opacity: 0.6;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-teal-green);
+    box-shadow: 0 0 0 3px rgba(0, 196, 178, 0.2);
+    background-color: var(--primary-dark); /* Чуть темнее при фокусе */
+}
+/* Стиль для полей с ошибкой валидации */
+.form-group input.input-error,
+.form-group textarea.input-error {
+    border-color: #e53e3e; /* Красный цвет */
+    box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.2);
+}
+
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.btn-form-submit {
+    width: 100%; /* Кнопка на всю ширину формы */
+    margin-top: 10px; /* Отступ сверху */
+    font-size: 1.1rem; /* Чуть больше шрифт на кнопке формы */
+}
+
+
+/* Contacts Section */
+.contacts {
+    background-color: var(--primary-dark);
+    color: var(--gray-light);
+}
+
+.contacts h2 {
+    text-align: center;
+}
+
+.contacts-content {
+    display: flex;
+    gap: 80px;
+    flex-wrap: wrap;
+}
+
+.contacts-info {
+    flex: 1;
+    min-width: 300px;
+    font-size: 1.1rem;
+    color: var(--gray-medium);
+}
+
+.contacts-map {
+    flex: 1;
+    min-width: 300px;
+    border-radius: var(--border-radius-extra-large);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--gray-dark);
+    background-color: var(--secondary-dark); /* Фон для карты */
+}
+.contacts-map iframe {
+    border-radius: var(--border-radius-extra-large);
+    display: block; /* Удаляем возможные нижние отступы */
+}
+
+
+.contact-item {
+    display: flex;
+    align-items: center; /* Выравнивание иконки по центру строки */
+    margin-bottom: 25px;
+}
+.contact-item:last-child {
+    margin-bottom: 0;
+}
+
+.contact-item i {
+    margin-right: 15px;
+    color: var(--accent-teal-green);
+    font-size: 1.5rem;
+    width: 30px; /* Фиксированная ширина */
+    text-align: center;
+    flex-shrink: 0;
+}
+.contact-item a {
+    color: var(--gray-light);
+}
+.contact-item a:hover {
+    color: var(--accent-teal-green);
+    text-decoration: underline; /* Добавляем подчеркивание для ссылок контактов */
+}
+
+
+.social-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary-dark);
+    color: var(--gray-light);
+    border-radius: 50%;
+    transition: var(--transition-medium);
+    font-size: 1.5rem;
+    border: 1px solid var(--gray-dark);
+    box-shadow: var(--shadow-card);
+    position: relative;
+}
+/* Эффект акцентного свечения при наведении */
+.social-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--accent-teal-green);
+    filter: blur(10px); /* Эффект свечения */
+    opacity: 0;
+    transition: opacity var(--transition-medium);
+    z-index: -1;
+}
+
+.social-links a:hover {
+    color: var(--primary-dark);
+    background-color: var(--accent-teal-green);
+    transform: translateY(-5px) rotate(8deg); /* Поднятие и вращение */
+    border-color: var(--accent-teal-green);
+    box-shadow: var(--shadow-accent);
+}
+.social-links a:hover::before {
+    opacity: 0.6; /* Показываем свечение */
+}
+
+
+/* Footer */
+.footer {
+    background-color: var(--primary-dark);
+    color: var(--gray-medium);
+    padding: 60px 0 30px;
+    border-top: 1px solid var(--gray-dark);
+    text-align: center; /* Центрируем весь контент */
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-logo {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 25px;
+    color: var(--accent-teal-green);
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-links a {
+    transition: var(--transition-fast);
+    color: var(--gray-medium);
+}
+
+.footer-links a:hover {
+    color: var(--accent-teal-green);
+}
+
+.footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--gray-dark);
+    font-size: 0.9rem;
+    color: var(--gray-medium);
+    justify-content: center;
+}
+
+.footer-legal a {
+    transition: var(--transition-fast);
+    color: var(--gray-medium);
+}
+
+.footer-legal a:hover {
+    color: var(--accent-teal-green);
+}
+
+
+/* Modal */
+.modal {
+    display: none; /* Controlled by JS */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Очень темный фон */
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px); /* Сильнее размытие */
+    -webkit-backdrop-filter: blur(8px); /* Для Safari */
+    opacity: 0; /* Начальная прозрачность для анимации */
+    pointer-events: none; /* Не реагирует на клики, пока не показан */
+    transition: opacity var(--transition-fast);
+}
+/* Состояние, когда модал активен (класс добавляется JS) */
+.modal.active {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+.modal-content {
+    background-color: var(--secondary-dark);
+    color: var(--gray-light);
+    padding: 50px;
+    border-radius: var(--border-radius-extra-large);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: var(--shadow-hover); /* Заметная тень */
+    border: 1px solid var(--gray-dark);
+    transform: translateY(-30px); /* Начальное смещение для анимации */
+    opacity: 0; /* Начальная прозрачность контента */
+    transition: transform var(--transition-medium), opacity var(--transition-medium);
+}
+/* Анимация появления контента модала */
+.modal.active .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--gray-medium);
+    transition: var(--transition-fast);
+}
+
+.close-modal:hover {
+    color: var(--white);
+    transform: rotate(90deg);
+}
+
+.success-icon {
+    font-size: 5rem;
+    color: var(--accent-teal-green);
+    margin-bottom: 20px;
+}
+
+.modal h3 {
+    margin-bottom: 15px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.modal p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    color: var(--gray-medium);
+}
+
+
+/* Responsive Styles */
+/* Убедитесь, что эти медиа-запросы идут ПОСЛЕ основных стилей */
+
+@media (max-width: 1200px) {
+    /* Переключаем Features на 2 колонки на экранах <= 1200px */
+     .features-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+        gap: 30px;
+    }
+     .feature-card {
+         min-height: unset; /* Убираем фикс. высоту при переходе на 2 колонки */
+     }
+}
+
+
+@media (max-width: 1024px) {
+    /* Общие корректировки для планшетов */
+    .section-padding {
+        padding: 100px 0;
+    }
+     .section-padding-hero {
+         padding: 160px 0 100px;
+     }
+
+    .hero .container {
+        flex-direction: column;
+        gap: 60px;
+        text-align: center;
+    }
+    .hero-content {
+        order: 1;
+        max-width: 100%;
+    }
+    .hero-image {
+        order: 2;
+         min-width: unset;
+         width: 80%;
+         max-width: 500px;
+    }
+     .hero-image img {
+         transform: none; /* Убираем 3D эффект */
+     }
+     .hero-image img:hover {
+          transform: translateY(-8px); /* Оставляем только подъем */
+     }
+
+
+    .hero-buttons {
+         justify-content: center;
+         gap: 15px;
+    }
+     .hero-buttons .btn {
+         min-width: unset;
+         width: auto;
+     }
+
+
+    .advantages-content {
+        flex-direction: column-reverse;
+        gap: 60px;
+    }
+    .advantages-image,
+    .advantages-text {
+         min-width: unset;
+         width: 100%;
+         text-align: center;
+         align-items: center;
+    }
+     /* Нет ховер эффекта для картинки преимуществ */
+
+
+     .advantage-item {
+         justify-content: center;
+         margin-bottom: 25px;
+     }
+     .advantage-number {
+         margin: 0 0 15px 0; /* Номер сверху на маленьких экранах */
+         font-size: 1.3rem;
+          width: 40px;
+          height: 40px;
+     }
+     .advantage-item:hover .advantage-number {
+          transform: scale(1.1);
+          box-shadow: 0 0 0 8px rgba(0, 196, 178, 0.2);
+     }
+     .advantage-desc h3 {
+         font-size: 1.2rem;
+     }
+     .advantage-desc p {
+         font-size: 0.95rem;
+     }
+
+
+    .contacts-content {
+        flex-direction: column;
+        gap: 60px;
+    }
+    .contacts-info,
+    .contacts-map {
+        min-width: unset;
+        width: 100%;
+    }
+     .contacts-map iframe {
+          height: 350px;
+     }
+
+    .social-links {
+        justify-content: center;
+    }
+
+     .offer-card {
+         padding: 40px;
+     }
+      .offer-card h3 {
+         font-size: 1.6rem;
+     }
+      .offer-card li {
+         font-size: 1rem;
+         margin-bottom: 15px;
+     }
+      .offer-card i {
+         font-size: 1.2rem;
+      }
+     .offer-note {
+         font-size: 0.9rem;
+         padding: 12px 15px;
+     }
+      .offer-note i {
+          font-size: 1.1rem;
+      }
+
+      .pilot-form {
+          padding: 40px;
+      }
+       .pilot-form h3 {
+          font-size: 1.6rem;
+       }
+
+}
+
+
+@media (max-width: 768px) {
+    h1 { font-size: clamp(2rem, 6vw, 3rem); }
+    h2 { font-size: clamp(1.8rem, 5vw, 2.4rem); margin-bottom: 1.2em; }
+    h3 { font-size: clamp(1.4rem, 4vw, 1.8rem); }
+
+    .section-padding {
+        padding: 80px 0;
+    }
+    .section-padding-hero {
+         padding: 120px 0 80px;
+     }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    .header {
+        padding: 15px 0;
+    }
+
+    .nav {
+        display: none; /* Скрыто по умолчанию */
+        position: absolute;
+        top: 65px; /* Под хедером */
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary-dark); /* Фон меню */
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        border-top: 1px solid var(--gray-dark);
+         transition: max-height 0.3s ease-in-out; /* Плавное появление меню */
+         overflow: hidden;
+         max-height: 0; /* Изначально 0 */
+    }
+    .nav.active {
+        display: flex; /* Показываем при классе active */
+        max-height: 300px; /* Максимальная высота для анимации (подберите значение, чтобы вмещалось содержимое) */
+    }
+
+
+    .nav a {
+        margin: 10px 0;
+        text-align: center;
+        font-size: 1.1rem;
+         padding-bottom: 8px;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        font-size: 1.6rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+
+     .features-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на 768px */
+        gap: 25px;
+    }
+     .feature-card {
+         padding: 30px;
+         min-height: 250px;
+     }
+      .feature-icon {
+          font-size: 3rem;
+          width: 70px;
+          height: 70px;
+      }
+
+
+    .advantage-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+     /* Номер сверху - стили уже в 1024px */
+
+
+     .offer-card {
+         padding: 30px;
+     }
+      .offer-card h3 {
+         font-size: 1.4rem;
+     }
+      .offer-card li {
+         font-size: 0.95rem;
+      }
+     .offer-note {
+         font-size: 0.85rem;
+     }
+
+
+    .pilot-form {
+        padding: 30px;
+    }
+    .pilot-form h3 {
+        font-size: 1.5rem;
+    }
+     .btn-form-submit {
+          font-size: 1rem;
+     }
+
+
+     .contacts-map iframe {
+         height: 300px;
+     }
+
+    .social-links {
+        justify-content: center;
+    }
+     .social-links a {
+         width: 45px;
+         height: 45px;
+         font-size: 1.3rem;
+     }
+
+
+    .footer-links {
+        gap: 20px;
+        font-size: 0.95rem;
+    }
+     .footer-legal {
+          gap: 15px;
+          font-size: 0.85rem;
+     }
+
+    .modal-content {
+        padding: 35px;
+    }
+     .success-icon {
+         font-size: 4rem;
+    }
+     .modal h3 {
+         font-size: 1.6rem;
+     }
+      .modal p {
+          font-size: 1rem;
+      }
+
+}
+
+@media (max-width: 576px) {
+    /* Features: одна колонка на узких экранах */
+    .features-grid {
+        grid-template-columns: 1fr; /* 1 колонка */
+        gap: 25px;
+    }
+     .feature-card {
+         min-height: unset;
+     }
+}
+
+
+@media (max-width: 480px) {
+     h1 { font-size: clamp(1.8rem, 7vw, 2.5rem); }
+    h2 { font-size: clamp(1.6rem, 6vw, 2rem); margin-bottom: 1em; }
+    h3 { font-size: clamp(1.3rem, 5vw, 1.6rem); }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+    .section-padding-hero {
+         padding: 100px 0 60px;
+     }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .header {
+        padding: 12px 0;
+    }
+    .logo-text {
+        display: none;
+    }
+     .logo-img {
+         height: 35px;
+     }
+     .mobile-menu-btn {
+         font-size: 1.5rem;
+     }
+      .nav {
+          top: 60px;
+      }
+
+
+    .hero .subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .hero-buttons .btn {
+         width: 100%;
+         min-width: unset;
+         padding: 12px 20px; /* Меньше padding */
+     }
+     .hero-image {
+         width: 90%;
+     }
+
+
+    /* Features: одна колонка уже установлена в 576px */
+     .feature-card {
+         padding: 25px;
+     }
+      .feature-icon {
+          font-size: 2.8rem;
+          width: 65px;
+          height: 65px;
+      }
+
+
+     .advantage-item {
+          margin-bottom: 20px;
+     }
+     .advantage-number {
+          width: 35px;
+          height: 35px;
+          font-size: 1.1rem;
+          margin-bottom: 10px;
+     }
+     .advantage-desc h3 {
+          font-size: 1.1rem;
+     }
+     .advantage-desc p {
+          font-size: 0.9rem;
+     }
+
+     .offer-card {
+        padding: 25px;
+    }
+    .offer-card h3 {
+         font-size: 1.3rem;
+    }
+    .offer-card li {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+    .offer-card i {
+        font-size: 1.1rem;
+    }
+    .offer-note {
+         font-size: 0.8rem;
+         padding: 10px 12px;
+    }
+     .offer-note i {
+         font-size: 1rem;
+     }
+
+
+    .pilot-form {
+        padding: 25px;
+    }
+     .pilot-form h3 {
+         font-size: 1.3rem;
+     }
+    .form-group input,
+    .form-group textarea {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    .form-group textarea {
+        min-height: 100px;
+    }
+    .btn-form-submit {
+         font-size: 0.95rem;
+     }
+
+
+    .contacts-map iframe {
+        height: 250px;
+    }
+    .contact-item {
+         font-size: 1rem;
+          margin-bottom: 20px;
+     }
+     .contact-item i {
+          font-size: 1.3rem;
+          width: 25px;
+          margin-right: 10px;
+     }
+    .social-links a {
+         width: 40px;
+         height: 40px;
+         font-size: 1.2rem;
+         gap: 10px;
+    }
+
+    .footer {
+         padding: 40px 0 20px;
+    }
+    .footer-logo {
+         font-size: 1.8rem;
+         margin-bottom: 20px;
+    }
+     .footer-links {
+         gap: 15px;
+          font-size: 0.9rem;
+     }
+     .footer-legal {
+          gap: 10px;
+          font-size: 0.8rem;
+     }
+
+
+    .modal-content {
+        padding: 25px;
+    }
+     .success-icon {
+         font-size: 3rem;
+    }
+     .modal h3 {
+         font-size: 1.4rem;
+     }
+     .modal p {
+         font-size: 0.9rem;
+         margin-bottom: 20px;
+     }
+      #modal-close-btn {
+          padding: 10px 20px;
+      }
+}
