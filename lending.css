@@ -419,9 +419,11 @@ img {
 }
 .advantages-image img {
     border-radius: var(--border-radius-extra-large);
-    /* Изменено: Удалена тень */
-    /* box-shadow: var(--shadow-card); */ /* <-- Removed */
-    /* Удалены transition, transform, opacity */
+    /* Изменено: Удалена тень и анимации */
+    /* box-shadow: var(--shadow-card); */
+    /* transition: var(--transition-medium); */
+    /* transform: perspective(1000px) rotateY(5deg); */
+    /* opacity: 0.95; */
     /* Удален :hover блок */
 }
 
@@ -967,11 +969,13 @@ img {
 
 
      .advantage-item {
+         /* flex-direction: column; */ /* Перенесено в 768px */
          justify-content: center;
          margin-bottom: 25px;
+         /* align-items: center; */ /* Перенесено в 768px */
      }
      .advantage-number {
-         margin: 0 0 15px 0; /* Номер сверху на маленьких экранах */
+         /* margin: 0 0 15px 0; */ /* Перенесено в 768px */
          font-size: 1.3rem;
           width: 40px;
           height: 40px;
@@ -1110,12 +1114,17 @@ img {
 
 
     .advantage-item {
-        flex-direction: column;
+        flex-direction: column; /* Номер сверху на 768px */
         align-items: center;
         text-align: center;
         margin-bottom: 25px;
     }
-     /* Номер сверху - стили уже в 1024px */
+     .advantage-number {
+         margin: 0 0 15px 0; /* Отступ снизу номера */
+         font-size: 1.2rem;
+         width: 38px;
+         height: 38px;
+     }
 
 
      .offer-card {

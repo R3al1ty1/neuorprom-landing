@@ -16,18 +16,19 @@
     <header class="header">
         <div class="container">
             <div class="logo-container">
-                <!-- Путь к логотипу - убедитесь, что файл находится в папке images -->
+                <!-- Путь к логотипу - убедитесь, что файл images/logo.png существует -->
                 <img src="images/logo.png" alt="Neuroprom" class="logo-img" width="40" height="40">
                 <span class="logo-text">Neuroprom</span>
             </div>
             <nav class="nav">
+                <!-- Ссылки для smooth scrolling -->
                 <a href="#features">Возможности</a>
                 <a href="#advantages">Преимущества</a>
                 <a href="#pilot">Пилотный проект</a>
                 <a href="#contacts">Контакты</a>
             </nav>
             <!-- Кнопка "Войти" -->
-            <button class="btn btn-secondary-outline" id="app-btn">Войти в приложение</button> <!-- Сменили класс для другого стиля -->
+            <button class="btn btn-secondary-outline" id="app-btn">Войти в приложение</button>
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </div>
@@ -38,7 +39,6 @@
     <section class="hero section-padding-hero">
         <div class="container">
             <div class="hero-content">
-                <!-- Главный заголовок - возможно, добавим акцентный цвет на части текста через span -->
                 <h1>
                     Искусственный интеллект для
                     <span class="text-accent">материаловедения</span>
@@ -54,8 +54,8 @@
             </div>
             <div class="hero-image">
                 <!-- Placeholder для изображения интерфейса/мокапа -->
+                <!-- Убедитесь, что файл images/hero-mockup.png существует -->
                 <img src="images/hero-mockup.png" alt="Интерфейс Neuroprom" class="img-responsive">
-                 <!-- Убедитесь, что у вас есть подходящее изображение в папке images -->
             </div>
         </div>
     </section>
@@ -74,7 +74,6 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                         <!-- Поменяли иконку на более подходящую -->
                         <i class="fas fa-atom"></i>
                     </div>
                     <h3>Цифровые двойники</h3>
@@ -104,9 +103,9 @@
             <h2>Почему выбирают Neuroprom?</h2>
             <div class="advantages-content">
                  <div class="advantages-image">
-                    <!-- Placeholder для изображения -->
+                    <!-- Убедитесь, что файл images/Cone_013.png существует -->
+                    <!-- Анимация и тень убраны по запросу -->
                     <img src="images/Cone_013.png" alt="Преимущества Neuroprom" class="img-responsive">
-                     <!-- Убедитесь, что у вас есть подходящее изображение в папке images -->
                 </div>
                 <div class="advantages-text">
                     <div class="advantage-item">
@@ -214,7 +213,9 @@
                     </div>
                 </div>
                 <div class="contacts-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22500.64279714194!2d37.64589!3d55.70425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTXCsDQyJzE1LjMiTiAzN8KwMzgnNDUuMiJF!5e0!3m2!1sru!2sru!4v1620000000000!5m2!1sru!2sru" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <!-- Заглушка Яндекс Карт. Вам нужно получить актуальный код встраивания для вашего адреса с maps.yandex.ru -->
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3AYOUR_YANDEX_MAP_CODE&source=constructor" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <!-- Замените YOUR_YANDEX_MAP_CODE на реальный код, полученный из Яндекс Карт (обычно в виде длинной строки символов) -->
                 </div>
             </div>
         </div>
@@ -251,6 +252,7 @@
         </div>
     </div>
 
+    <!-- Подключение скрипта. Убедитесь, что путь lending.js верен и файл доступен. -->
     <script src="lending.js"></script>
 </body>
 </html>
