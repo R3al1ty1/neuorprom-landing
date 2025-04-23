@@ -588,6 +588,7 @@ img {
     border: 1px solid var(--gray-dark);
     position: relative;
     overflow: hidden;
+    transition: box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .offer-card::before {
@@ -605,20 +606,35 @@ img {
     -webkit-mask-composite: exclude;
     mask-composite: exclude;
     opacity: 0;
-    /* Smooth animation for the glowing border */
-    transition: opacity var(--transition-slow);
+    transition: opacity 0.8s ease-in-out;
+}
+
+.offer-card:hover {
+    box-shadow: var(--shadow-hover),
+                0 0 30px rgba(0, 196, 178, 0.2);
 }
 
 .offer-card:hover::before {
     opacity: 1;
 }
 
+.offer-card h3, 
+.offer-card li, 
+.offer-card i {
+    transition: transform 0.4s ease, color 0.3s ease;
+}
 
-.offer-card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-weight: 700;
+.offer-card:hover h3 {
+    color: var(--accent-teal-green);
+}
+
+.offer-card:hover li {
+    transform: translateX(5px);
+}
+
+.offer-card:hover i {
+    transform: scale(1.1);
+    color: var(--accent-teal-green);
 }
 
 .offer-card ul {
