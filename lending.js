@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
         console.warn('Mobile menu button or nav not found.');
     }
 
-    // Remove 'active' class on nav link click (for mobile)
     if (nav) {
         nav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function() {
@@ -33,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Close mobile menu if open on window resize (when resizing from mobile to desktop)
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768 && nav) { // Check for nav existence
             if (nav.classList.contains('active')) {
@@ -59,13 +57,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             const targetElement = document.querySelector(targetId);
-            console.log('Target element for ID:', targetId, 'found:', targetElement); // Log if target found
+            console.log('Target element for ID:', targetId, 'found:', targetElement);
 
             if (targetElement) {
                 const header = document.querySelector('.header');
-                const headerHeight = header ? header.offsetHeight : 0; // Get header height, default to 0 if not found
+                const headerHeight = header ? header.offsetHeight : 0;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-                const offset = headerHeight + 30; // Add header height + some extra padding
+                const offset = headerHeight;
 
                 console.log(`Scrolling to ${targetId} (position: ${targetPosition}, offset: ${offset})`);
                 window.scrollTo({
@@ -100,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const header = document.querySelector('.header');
                 const headerHeight = header ? header.offsetHeight : 0;
                 const targetPosition = pilotSection.getBoundingClientRect().top + window.scrollY;
-                const offset = headerHeight + 30; // Adjust for header and padding
+                const offset = headerHeight + 60; // Увеличиваем отступ для соответствия с другими секциями
 
                 window.scrollTo({
                     top: targetPosition - offset,
@@ -232,6 +230,18 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Добавляем обработчик для прокрутки к началу страницы при клике на логотип
+    const logoContainer = document.querySelector('.logo-container');
+    if (logoContainer) {
+        logoContainer.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 });
 
-console.log('lending.js script finished execution.'); // Log when script finishes
+console.log('lending.js script finished execution.');

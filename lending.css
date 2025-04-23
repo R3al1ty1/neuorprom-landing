@@ -90,10 +90,12 @@ img {
 .section-padding {
     padding: 120px 0;
     position: relative;
+    scroll-margin-top: 100px; /* Добавляем отступ для лучшего позиционирования при прокрутке */
 }
 .section-padding-hero {
-     padding: 200px 0 120px;
-     position: relative;
+    padding: 200px 0 120px;
+    position: relative;
+    scroll-margin-top: 100px;
 }
 
 
@@ -218,6 +220,8 @@ img {
     display: flex;
     align-items: center;
     gap: 12px;
+    text-decoration: none;
+    color: inherit;
 }
 
 .logo-img {
@@ -766,14 +770,11 @@ img {
     min-width: 300px;
     border-radius: var(--border-radius-extra-large);
     overflow: hidden;
-    box-shadow: var(--shadow-card);
-    border: 1px solid var(--gray-dark);
-    background-color: var(--secondary-dark);
 }
 .contacts-map iframe {
     border-radius: var(--border-radius-extra-large);
     display: block;
-    transition: var(--transition-medium); /* Transition for potential future map interactions/styles */
+    transition: var(--transition-medium);
 }
 
 
