@@ -1,46 +1,42 @@
---- START OF FILE lending.html ---
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neuroprom - Искусственный интеллект для материаловедения </title>
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <title>Нейропром</title>
     <link rel="stylesheet" href="lending.css">
-    <!-- Использование современного шрифта Inter из Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header class="header">
         <div class="container">
             <div class="logo-container">
-                <!-- Путь к логотипу - убедитесь, что файл images/logo.png существует -->
-                <img src="images/logo.png" alt="Логотип Neuroprom" class="logo-img" width="40" height="40">
-                <span class="logo-text">Neuroprom</span>
+                <img src="images/logo.png" alt="Neuroprom" class="logo-img" width="40" height="40">
+                <span class="logo-text">Нейропром</span>
             </div>
             <nav class="nav">
-                <!-- Ссылки для smooth scrolling -->
                 <a href="#features">Возможности</a>
                 <a href="#advantages">Преимущества</a>
                 <a href="#pilot">Пилотный проект</a>
                 <a href="#contacts">Контакты</a>
             </nav>
-            <!-- Кнопка "Войти" -->
-            <button class="btn btn-secondary-outline" id="app-btn">Войти в приложение</button>
+            <div class="header-buttons">
+                <!-- Removed the theme toggle button -->
+                <button class="btn btn-secondary-outline" id="app-btn">Войти в приложение</button>
+            </div>
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
-
     <!-- Hero Section -->
     <section class="hero section-padding-hero">
         <div class="container">
-            <!-- Добавлен класс needs-animation для триггера анимации через JS -->
-            <div class="hero-content needs-animation">
+            <div class="hero-content">
                 <h1>
                     Искусственный интеллект для
                     <span class="text-accent">материаловедения</span>
@@ -55,9 +51,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <!-- Placeholder для изображения интерфейса/мокапа -->
-                <!-- Убедитесь, что файл images/hero-mockup.png существует -->
-                <img src="images/hero-mockup.png" alt="Интерфейс платформы Neuroprom" class="img-responsive">
+                <img src="images/hero-mockup.png" alt="Интерфейс Neuroprom" class="img-responsive">
             </div>
         </div>
     </section>
@@ -104,11 +98,8 @@
         <div class="container">
             <h2>Почему выбирают Neuroprom?</h2>
             <div class="advantages-content">
-                 <div class="advantages-image">
-                    <!-- Убедитесь, что файл images/Cone_013.png существует -->
-                    <!-- Анимация и тень убраны по запросу -->
-                    <!-- Примечание: Если у изображения есть пустые поля сверху/снизу, их нужно убрать в графическом редакторе -->
-                    <img src="images/Cone_013.png" alt="Абстрактное изображение, символизирующее материаловедение" class="img-responsive">
+                <div class="advantages-image">
+                    <img src="images/Cone_013.png" alt="Преимущества Neuroprom" class="img-responsive">
                 </div>
                 <div class="advantages-text">
                     <div class="advantage-item">
@@ -160,11 +151,11 @@
                             <li><i class="fas fa-check-circle"></i> 6 месяцев бесплатного использования платформы</li>
                             <li><i class="fas fa-check-circle"></i> Полная интеграция в ваши процессы под "ключ"</li>
                             <li><i class="fas fa-check-circle"></i> Индивидуальная настройка под ваши материалы и задачи</li>
-                            <li><i class="fas fa-check-circle"></i> Гарантированная скидка 30% на постоянное использование после пилота</li>
+                            <li><i class="fas fa-check-circle"></i> Гарантированная скидка 30% на 6 месяцев после пилота</li>
                         </ul>
-                         <div class="offer-note">
+                        <div class="offer-note">
                             <i class="fas fa-info-circle"></i> Количество мест ограничено! Оставьте заявку прямо сейчас.
-                         </div>
+                        </div>
                     </div>
                 </div>
 
@@ -216,11 +207,7 @@
                     </div>
                 </div>
                 <div class="contacts-map">
-                    <!-- Код встраивания Яндекс Карт -->
-                    <!-- ВАЖНО: Замените содержимое src="" на реальный код встраивания карты, полученный с maps.yandex.ru -->
-                    <!-- Для адреса "г. Москва, ул. Автозаводская, 16" -->
-                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A688466f64a2e507f0745cf155003d585d8582a5d998e0e0582b6091d96f4937c&source=constructor" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="true" loading="lazy"></iframe>
-                    <!-- Пример src для Автозаводской 16: constructor%3A688466f64a2e507f0745cf155003d585d8582a5d998e0e0582b6091d96f4937c -->
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A3f432b7aecfc4a6bd36fb2775d6318d0b1889a8844915ebef6d1dc38014cc83f&source=constructor" width="500" height="400" frameborder="0"></iframe>
                 </div>
             </div>
         </div>
@@ -230,7 +217,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">Neuroprom</div>
+                <div class="footer-logo">Нейропром</div>
                 <div class="footer-links">
                     <a href="#features">Возможности</a>
                     <a href="#advantages">Преимущества</a>
@@ -238,7 +225,7 @@
                     <a href="#contacts">Контакты</a>
                 </div>
                 <div class="footer-legal">
-                    <p>© 2024 Neuroprom. Все права защищены.</p>
+                    <p>© 2024 Нейропром. Все права защищены.</p>
                     <a href="#">Политика конфиденциальности</a>
                     <a href="#">Условия использования</a>
                 </div>
@@ -257,9 +244,7 @@
         </div>
     </div>
 
-    <!-- Подключение скрипта. Убедитесь, что путь lending.js верен и файл доступен. -->
-    <!-- Скрипт должен быть в конце body для правильной работы с DOM. -->
+    <!-- Подключение основного JavaScript файла -->
     <script src="lending.js"></script>
 </body>
 </html>
---- END OF FILE lending.html ---
