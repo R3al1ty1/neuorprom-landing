@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const header = document.querySelector('.header');
                 const headerHeight = header ? header.offsetHeight : 0;
                 const targetPosition = pilotSection.getBoundingClientRect().top + window.scrollY;
-                const offset = headerHeight + 60; // Увеличиваем отступ для соответствия с другими секциями
+                const offset = headerHeight; // Увеличиваем отступ для соответствия с другими секциями
 
                 window.scrollTo({
                     top: targetPosition - offset,
