@@ -88,14 +88,26 @@ img {
 }
 
 .section-padding {
+    min-height: 100vh;
     padding: 120px 0;
     position: relative;
-    scroll-margin-top: 100px; /* Добавляем отступ для лучшего позиционирования при прокрутке */
+    scroll-margin-top: 100px;
+    display: flex;
+    align-items: center;
 }
+
 .section-padding-hero {
+    min-height: 100vh;
     padding: 200px 0 120px;
     position: relative;
     scroll-margin-top: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.section-padding > .container,
+.section-padding-hero > .container {
+    width: 100%;
 }
 
 
@@ -302,6 +314,8 @@ img {
     color: var(--white);
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
 /* Background blob */
@@ -419,6 +433,8 @@ img {
 .features {
     background-color: var(--secondary-dark);
     color: var(--gray-light);
+    display: flex;
+    align-items: center;
 }
 
 .features h2 {
@@ -488,6 +504,8 @@ img {
 .advantages {
     background-color: var(--primary-dark);
     color: var(--gray-light);
+    display: flex;
+    align-items: center;
 }
 
 .advantages h2 {
@@ -562,6 +580,8 @@ img {
 .pilot {
     background-color: var(--secondary-dark);
     color: var(--gray-light);
+    display: flex;
+    align-items: center;
 }
 
 .pilot h2 {
@@ -746,6 +766,8 @@ img {
 .contacts {
     background-color: var(--primary-dark);
     color: var(--gray-light);
+    display: flex;
+    align-items: center;
 }
 
 .contacts h2 {
@@ -1043,9 +1065,11 @@ img {
 @media (max-width: 1024px) {
 
     .section-padding {
+        min-height: auto;
         padding: 100px 0;
     }
      .section-padding-hero {
+         min-height: auto;
          padding: 160px 0 100px;
      }
 
@@ -1173,11 +1197,13 @@ img {
     h3 { font-size: clamp(1.4rem, 4vw, 1.8rem); }
 
     .section-padding {
+        min-height: auto;
         padding: 80px 0;
     }
     .section-padding-hero {
-         padding: 120px 0 80px;
-     }
+        min-height: auto;
+        padding: 120px 0 80px;
+    }
 
     .container {
         padding: 0 20px;
