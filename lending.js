@@ -128,8 +128,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    if (cooperationForm && successModal) { // Check if form and modal exist
-        cooperationForm.addEventListener('submit', function(e) {
+    if (cooperationForm && successModal) {
+        cooperationForm.addEventListener('submit', async function(e) {
             console.log('Form submission attempted.');
             e.preventDefault();
 
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
             inputs.forEach(input => {
                 if (!input.value.trim()) {
                     isValid = false;
-                    input.classList.add('input-error'); // Add class for styling
+                    input.classList.add('input-error');
                     console.log(`Validation failed: required field ${input.id} is empty.`);
                 } else {
                     input.classList.remove('input-error');
@@ -147,7 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             const emailInput = this.querySelector('input[type="email"]');
-            // Basic email format check
             if(emailInput && emailInput.value.trim() && !/\S+@\S+\.\S+/.test(emailInput.value.trim())) {
                 isValid = false;
                 emailInput.classList.add('input-error');
@@ -158,33 +157,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (!isValid) {
                 console.warn('Form validation failed. Stopping submission.');
-                return; // Stop if not valid
+                return;
             }
 
             console.log('Form validation successful.');
 
-            // --- START: Replace with your actual form submission logic ---
-            // For demo purposes *without* a backend, just log, reset, and show modal
-            const formData = new FormData(this);
-            const formObject = {};
-            formData.forEach((value, key) => {
-                formObject[key] = value;
-            });
-            console.log('Form data (demo):', formObject);
+            try {
+                const formData = new FormData(this);
+                const formObject = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    company: formData.get('company') || '',
+                    description: formData.get('message') || ''
+                };
 
-            // Simulate successful submission
-            cooperationForm.reset();
-            // Remove any leftover error classes after reset
-            inputs.forEach(input => input.classList.remove('input-error'));
-            if(emailInput) emailInput.classList.remove('input-error');
+                const response = await fetch('https://app.neuroprom.com/api/forms/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(formObject)
+                });
 
-            // Show success modal
-            successModal.style.display = 'flex'; // Make it display: flex first
-            // Use requestAnimationFrame for better timing before adding active class
-            requestAnimationFrame(() => {
-                successModal.classList.add('active'); // Then add active class for transition
-                console.log('Showing success modal.');
-            });
+                if (response.ok) {
+                    // Успешная отправка
+                    cooperationForm.reset();
+                    inputs.forEach(input => input.classList.remove('input-error'));
+                    if(emailInput) emailInput.classList.remove('input-error');
+
+                    // Показываем модальное окно успеха
+                    successModal.style.display = 'flex';
+                    requestAnimationFrame(() => {
+                        successModal.classList.add('active');
+                        console.log('Form submitted successfully. Showing success modal.');
+                    });
+                } else {
+                    // Ошибка при отправке
+                    console.error('Form submission failed:', await response.text());
+                    alert('Произошла ошибка при отправке формы. Пожалуйста, попробуйте позже.');
+                }
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('Произошла ошибка при отправке формы. Пожалуйста, попробуйте позже.');
+            }
         });
     } else {
         console.warn('Cooperation form or success modal not found.');
