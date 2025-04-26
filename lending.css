@@ -74,7 +74,8 @@ ul {
     list-style: none;
 }
 
-img {
+img,
+video { /* Apply max-width to video as well */
     max-width: 100%;
     height: auto;
     display: block;
@@ -121,7 +122,7 @@ img {
     font-weight: 600;
     cursor: pointer;
     /* Улучшенные плавные переходы для всех свойств */
-    transition: 
+    transition:
         background-image 0.4s cubic-bezier(0.4, 0, 0.2, 1),
         background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
         color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
@@ -339,19 +340,19 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 80px;
+    /* Increased gap to prevent overlap */
+    gap: 120px;
     position: relative;
     z-index: 1;
 }
 
 .hero-content {
-    flex: 1;
+    flex: 1; /* Take up 1 part of the space */
     max-width: 600px;
-    /* Remove animation styles */
-    opacity: 1;
-    transform: none;
-    animation: none;
-    animation-delay: 0s;
+    /* Keep fadeInUp animation */
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.1s; /* Slight delay for content */
 }
 
 /* Add @keyframes fadeInUp */
@@ -377,33 +378,42 @@ img {
 }
 
 .hero-image {
-    flex: 1;
+    /* Modified flex property */
+    flex: 1.2; /* Take up 1.2 parts of the space */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 300px;
+    min-width: 300px; /* Keep a minimum width */
+    /* Add animation */
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.4s; /* Delay after content appears */
 }
 
-.hero-image img {
+.hero-image video {
     border-radius: var(--border-radius-extra-large);
     box-shadow: var(--shadow-card);
     transition: var(--transition-medium);
     transform: perspective(1000px) rotateY(-5deg);
     opacity: 0.95;
+    /* Let flexbox handle max-width */
+    /* max-width: 100%; REMOVED, handled by parent/flex */
+    margin: 0 auto;
+    width: 100%; /* Ensure video tries to fill its container */
+    height: auto;
+    object-fit: cover;
 }
 
-.hero-image img:hover {
-     transform: perspective(1000px) rotateY(-2deg) translateY(-8px);
-     box-shadow: var(--shadow-hover);
-     opacity: 1;
+.hero-image video:hover {
+    transform: perspective(1000px) rotateY(-2deg) translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    opacity: 1;
 }
-
 
 .hero h1 {
     margin-bottom: 1rem;
     line-height: 1.2;
-    opacity: 0;
-    animation: fadeInUp 0.8s ease-out forwards;
+    /* Animation applied via hero-content */
 }
 
 .hero .subtitle {
@@ -411,18 +421,17 @@ img {
     color: var(--gray-medium);
     margin-bottom: 2.5rem;
     font-weight: 400;
-    opacity: 0;
-    animation: fadeInUp 0.8s ease-out forwards;
-    animation-delay: 0.3s;
+    /* Animation applied via hero-content */
 }
 
 .hero-buttons {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    /* Animation applied via hero-content, maybe delay slightly more */
     opacity: 0;
     animation: fadeIn 0.8s ease-out forwards;
-    animation-delay: 0.6s;
+    animation-delay: 0.6s; /* Delay after title/subtitle */
 }
 .hero-buttons .btn {
     min-width: 200px;
@@ -533,7 +542,7 @@ img {
 }
 .advantages-image img {
     border-radius: var(--border-radius-extra-large);
-
+    max-width: 100%; /* Ensure image respects container */
 }
 
 
@@ -642,8 +651,8 @@ img {
     opacity: 1;
 }
 
-.offer-card h3, 
-.offer-card li, 
+.offer-card h3,
+.offer-card li,
 .offer-card i {
     transition: transform 0.4s ease, color 0.3s ease;
 }
@@ -796,7 +805,7 @@ img {
 .contacts-map iframe {
     border-radius: var(--border-radius-extra-large);
     display: block;
-    transition: var(--transition-medium);
+    transition: var(--transition-medium)
 }
 
 
@@ -1075,31 +1084,51 @@ img {
 
     .hero .container {
         flex-direction: column;
-        gap: 60px;
+        gap: 60px; /* Gap for column layout */
         text-align: center;
     }
     .hero-content {
-        order: 1;
+        order: 1; /* Text below image */
         max-width: 100%;
+        flex: none; /* Reset flex for column layout */
+        animation: none; /* Remove animation if reapplying below */
+        opacity: 1;
+        transform: none;
     }
     .hero-image {
-        flex: 1; /* Ensure image container takes space */
-         min-width: unset;
-         width: 80%;
-         max-width: 500px;
-         margin: 0 auto; /* Center image */
+        order: 0; /* Image above text */
+        flex: none; /* Reset flex */
+        width: 80%;
+        max-width: 500px;
+        margin: 0 auto; /* Center image */
+        animation: none; /* Remove animation if reapplying below */
+        opacity: 1;
+        transform: none;
     }
-     .hero-image img {
-         transform: none;
+     .hero-image video {
+        max-width: 100%; /* Ensure video stays within bounds */
+        transform: none; /* Reset transform */
+        opacity: 1;
      }
-     .hero-image img:hover {
-          transform: translateY(-8px);
+     .hero-image video:hover {
+          transform: translateY(-8px); /* Keep hover lift */
+          box-shadow: var(--shadow-hover);
+          opacity: 1;
      }
 
+    /* Reapply animations for column layout if desired */
+    .hero-content, .hero-image {
+        opacity: 0;
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+    .hero-image { animation-delay: 0.1s; }
+    .hero-content { animation-delay: 0.3s; } /* Content fades in after image */
+    .hero-buttons { animation-delay: 0.5s; } /* Buttons after content */
 
     .hero-buttons {
          justify-content: center;
          gap: 15px;
+         /* Animation adjusted above */
     }
      .hero-buttons .btn {
          min-width: unset;
@@ -1120,13 +1149,14 @@ img {
     }
 
 
-
      .advantage-item {
          justify-content: center;
          margin-bottom: 25px;
      }
      .advantage-number {
-         margin: 0 0 15px 0;
+         /* Keep existing style, maybe remove margin-right */
+         margin-right: 0;
+         margin-bottom: 15px; /* Add bottom margin */
          font-size: 1.3rem;
           width: 40px;
           height: 40px;
@@ -1216,7 +1246,7 @@ img {
     .nav {
         display: none;
         position: absolute;
-        top: 65px;
+        top: 65px; /* Adjust based on header height */
         left: 0;
         width: 100%;
         background-color: var(--secondary-dark);
@@ -1224,13 +1254,17 @@ img {
         padding: 20px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
         border-top: 1px solid var(--gray-dark);
-         transition: max-height 0.3s ease-in-out;
+         transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; /* Added opacity/visibility */
          overflow: hidden;
          max-height: 0;
+         opacity: 0; /* Start hidden */
+         visibility: hidden; /* Start hidden */
     }
     .nav.active {
-        display: flex; /*  active */
-        max-height: 300px;
+        display: flex; /* Added back display: flex */
+        max-height: 300px; /* Adjust as needed */
+        opacity: 1; /* Fade in */
+        visibility: visible; /* Make visible */
     }
 
 
@@ -1252,7 +1286,7 @@ img {
     }
 
      .features-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 768px */
+        grid-template-columns: repeat(2, 1fr); /* 2 columns up to 768px */
         gap: 25px;
     }
      .feature-card {
@@ -1271,8 +1305,10 @@ img {
         align-items: center;
         text-align: center;
         margin-bottom: 25px;
+        /* Keep margin-right 0 from 1024px */
+        margin-right: 0;
     }
-     /* 1024px */
+     /* No change from 1024px needed here for advantage-number */
 
 
      .offer-card {
@@ -1340,9 +1376,9 @@ img {
 
 
 @media (max-width: 576px) {
-    /* Features: */
+    /* Features: Stack to single column */
     .features-grid {
-        grid-template-columns: 1fr; /* 1  */
+        grid-template-columns: 1fr; /* 1 column below 576px */
         gap: 25px;
     }
      .feature-card {
@@ -1371,7 +1407,7 @@ img {
         padding: 12px 0;
     }
     .logo-text {
-        display: none;
+        display: none; /* Hide text logo on smallest screens */
     }
      .logo-img {
          height: 35px;
@@ -1380,7 +1416,7 @@ img {
          font-size: 1.5rem;
      }
       .nav {
-          top: 60px;
+          top: 60px; /* Adjust based on new header height */
       }
 
 
@@ -1395,14 +1431,14 @@ img {
     .hero-buttons .btn {
          width: 100%;
          min-width: unset;
-         padding: 12px 20px; /* padding */
+         padding: 12px 20px; /* Slightly smaller padding */
      }
      .hero-image {
-         width: 90%;
+         width: 90%; /* Adjust width for smallest screens */
      }
 
 
-    /* Features:576px */
+    /* Features: Already 1 column from 576px */
      .feature-card {
          padding: 25px;
      }
@@ -1522,10 +1558,4 @@ img {
       #modal-close-btn {
           padding: 10px 20px;
       }
-}
-/* For alignment with other header elements */
-.header-buttons {
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
